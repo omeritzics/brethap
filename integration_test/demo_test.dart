@@ -214,8 +214,11 @@ Future<void> main() async {
       Finder finder = find.byKey(const Key(DURATION_MINUTES_TEXT));
       expect(finder, findsOneWidget);
       Offset topLeft = tester.getTopLeft(finder);
-      await tester.timedDragFrom(Offset(topLeft.dx + 20, topLeft.dy + 20),
-          Offset(drag.toDouble(), 0), duration);
+      await tester.timedDragFrom(
+        Offset(topLeft.dx + 20, topLeft.dy + 20),
+        Offset(drag.toDouble(), 0),
+        duration,
+      );
       await tester.pump(wait);
 
       // drag seconds
@@ -224,8 +227,11 @@ Future<void> main() async {
       finder = find.byKey(const Key(DURATION_SECONDS_TEXT));
       expect(finder, findsOneWidget);
       topLeft = tester.getTopLeft(finder);
-      await tester.timedDragFrom(Offset(topLeft.dx + 20, topLeft.dy + 20),
-          Offset(drag.toDouble(), 0), duration);
+      await tester.timedDragFrom(
+        Offset(topLeft.dx + 20, topLeft.dy + 20),
+        Offset(drag.toDouble(), 0),
+        duration,
+      );
       await tester.pump(wait);
 
       // tap tts
@@ -248,8 +254,8 @@ Future<void> main() async {
       // change colors
       await changeColors(tester);
 
-      await tester.pumpAndSettle();
-      takeScreenshot(binding, "5_colors.png");
+      // await tester.pumpAndSettle();
+      // takeScreenshot(binding, "5_colors.png");
 
       await tester.pump(wait * 2);
 
