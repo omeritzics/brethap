@@ -36,8 +36,14 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('Demo', (WidgetTester tester) async {
-    await app.main();
+    app.main();
+
     await tester.pumpAndSettle();
+    await tester.pump(demoWait);
+
+    String envVars = "";
+    Duration startDuration = Duration.zero;
+    Stopwatch stopwatch = Stopwatch()..start();
 
     debugPrint("Demo Running...");
     await testRunning(tester, binding);
@@ -50,5 +56,9 @@ Future<void> main() async {
 
     debugPrint("Demo Preferences...");
     await testPreferences(tester, binding);
+
+    envVars += "$testStart=$startDuration\n";
+    envVars += "$testEnd=${stopwatch.elapsed}\n";
+    debugPrint(envVars);
   });
 }
