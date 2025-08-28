@@ -7,7 +7,7 @@ on:
     branches: [ master, fdroid ]
 
 env:
-  JAVA_TOOL_OPTIONS: '-Xmx8g'
+  JAVA_TOOL_OPTIONS: '-Xmx10g'
 
 jobs:
   build:
