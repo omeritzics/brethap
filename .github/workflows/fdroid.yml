@@ -1,0 +1,19 @@
+# Verify an apk can be created when tagging a release for fdroid
+
+name: Fdroid Tests
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      # See https://github.com/subosito/flutter-action
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.35.1" # should this be an env variable?
+      - run: flutter build apk --debug
