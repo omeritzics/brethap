@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master, fdroid ]
 
+env:
+  JAVA_TOOL_OPTIONS: "-Xmx4g"
+
 jobs:
   build:
     runs-on: ubuntu-latest
