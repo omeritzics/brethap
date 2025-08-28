@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: [ master, fdroid ]
 
-env:
-  JAVA_TOOL_OPTIONS: '-Xmx10g'
+# env:
+#   JAVA_TOOL_OPTIONS: '-Xmx10g'
 
 jobs:
   build:
