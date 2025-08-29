@@ -6,14 +6,28 @@ on:
   release:
     types: [published]
 
+  # For testing changes to this workflow
+  # push:
+
 jobs:
-  build:
+  build_apk:
     runs-on: ubuntu-latest
 
     steps:
+      # See https://github.com/actions/checkout
       - uses: actions/checkout@v4
+
+      # See https://github.com/android-actions/setup-android
+      - uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+      - uses: android-actions/setup-android@v3
+
       # See https://github.com/subosito/flutter-action
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.35.1" # should this be an env variable?
+          channel: stable
+          flutter-version-file: pubspec.yaml
+
       - run: flutter build apk --debug
