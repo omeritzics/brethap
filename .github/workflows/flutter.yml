@@ -19,6 +19,10 @@ jobs:
         with:
           channel: stable
           flutter-version-file: pubspec.yaml
+          # Enable caching of pub dependencies
+          cache: true
+          # Enable caching of the Flutter SDK
+          cache-sdk: true
 
       - run: flutter --version
       - run: flutter pub get
