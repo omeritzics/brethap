@@ -26,9 +26,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: 'gradle'
-          cache-dependency-path: |
-            android/*.gradle*
-            android/**/gradle-wrapper.properties
 
       # See https://github.com/subosito/flutter-action
       - uses: subosito/flutter-action@v2
