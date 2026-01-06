@@ -26,6 +26,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: 'gradle'
+          cache-dependency-path: |
+            android/*.gradle*
+            android/**/gradle-wrapper.properties
 
       # See https://github.com/subosito/flutter-action
       - uses: subosito/flutter-action@v2
@@ -38,4 +41,4 @@ jobs:
       - run: sed -i '/release {/,/}/d' android/app/build.gradle
 
       # Build an unsigned release apk
-      - run: flutter build apk --build-cache --release --no-tree-shake-icons
+      - run: flutter build apk --release --no-tree-shake-icons
