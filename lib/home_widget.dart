@@ -415,10 +415,16 @@ class _HomeWidgetState extends State<HomeWidget> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
-          content: Text('''
-${AppLocalizations.of(context).openBrowser}: 
-
-$url'''),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(AppLocalizations.of(context).openBrowser),
+              const SizedBox(height: 10),
+              SelectionArea(child: Text(url)),
+              const SizedBox(height: 10),
+            ],
+          ),
         );
       },
     );
