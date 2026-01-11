@@ -16,8 +16,8 @@ const RESOURCES = {"assets/FontManifest.json": "7b2a36307916a9721811788013e65289
 "assets/images/launcher.png": "0950cc32a8f3e26588045a04f0cd6f55",
 "assets/packages/wakelock_web/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
 "assets/packages/wakelock_plus/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
-"assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
+"assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.smcbin": "ac03e14a2298c8b8fd2d2a5670257a69",
 "assets/AssetManifest.bin": "7f71f525b800fe783d061db5578ad0b3",
 "assets/AssetManifest.bin.json": "ecbd67294a9628dfd2f2378ecb96ab5c",
@@ -44,10 +44,10 @@ const RESOURCES = {"assets/FontManifest.json": "7b2a36307916a9721811788013e65289
 "manifest.json": "7dbb56011187c29a1092f838ef6df339",
 "README.md": "e36fa824f15fa14b5e13c4be30936e63",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"main.dart.js": "06146705c4159ae809cbdcc7f950bdd0",
-"flutter_bootstrap.js": "ac99802620829edebf8ea79cd355742c",
+"flutter_bootstrap.js": "50a8afe5d7be2b260aa5f28bd9d22b0e",
 "index.html": "1efc5cd32b5dd45b7a1107f05c7c2af6",
 "/": "1efc5cd32b5dd45b7a1107f05c7c2af6",
+"main.dart.js": "bbd59716d35ed46b3f566e9e20ab152f",
 "version.json": "306df4d8e4e4a1c49359b1f851581fc8"};
 // The application shell files that are downloaded before a service worker can
 // start.
