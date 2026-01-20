@@ -1,0 +1,3 @@
+Release version: 1.8.6+140
+* Added breathing animation outer ring
+* Other minor enhancements
