@@ -451,6 +451,12 @@ class _HomeWidgetState extends State<HomeWidget> {
       _status = AppLocalizations.of(context).pressStart;
     }
 
+    // Breathing animation constants
+    const double circleHeight = 150.0,
+        circleWidth = 150.0,
+        circlePadding = 8.0,
+        ringWidth = 4.0;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(_appName),
@@ -524,19 +530,44 @@ class _HomeWidgetState extends State<HomeWidget> {
               semanticsLabel: _status,
             ),
             Center(
-              child: Transform.scale(
-                scale: _scale,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 150.0,
-                    height: 150.0,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      shape: BoxShape.circle,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: <Widget>[
+                  // Breathing animation outer ring
+                  Visibility(
+                    visible: _isRunning,
+                    child: Padding(
+                      padding: EdgeInsets.all(circlePadding),
+                      child: Container(
+                        width: circleWidth,
+                        height: circleHeight,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.grey.shade300,
+                            width: ringWidth,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+
+                  // Breathing animation circle
+                  Transform.scale(
+                    scale: _scale,
+                    child: Padding(
+                      padding: EdgeInsets.all(circlePadding),
+                      child: Container(
+                        width: circleWidth,
+                        height: circleHeight,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Row(
