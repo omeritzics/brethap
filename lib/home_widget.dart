@@ -53,6 +53,7 @@ class HomeWidget extends StatefulWidget {
 
 class _HomeWidgetState extends State<HomeWidget> {
   bool _isRunning = false,
+      _ringVisible = false,
       _hasVibrator = false,
       _hasCustomVibrate = false,
       _hasWakelock = false,
@@ -524,18 +525,26 @@ class _HomeWidgetState extends State<HomeWidget> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              _status,
-              style: Theme.of(context).textTheme.headlineSmall,
-              semanticsLabel: _status,
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _ringVisible = !_ringVisible;
+                });
+              },
+              child: Text(
+                _status,
+                style: Theme.of(context).textTheme.headlineSmall,
+                semanticsLabel: _status,
+              ),
             ),
+
             Center(
               child: Stack(
                 clipBehavior: Clip.none,
                 children: <Widget>[
                   // Breathing animation outer ring
                   Visibility(
-                    visible: _isRunning,
+                    visible: _ringVisible,
                     child: Padding(
                       padding: EdgeInsets.all(circlePadding),
                       child: Container(
@@ -570,6 +579,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ],
               ),
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
