@@ -62,7 +62,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           _hasWear =
           false;
   late Duration _duration;
-  late String _status, _appName;
+  late String _status, _preferenceName;
   late FlutterTts _tts;
   double _scale = 0.0;
   late AudioPlayer _player;
@@ -204,7 +204,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   void _update() {
     Preference preference = widget.preferences.get(0);
     _duration = Duration(seconds: preference.duration);
-    _appName = preference.name.isEmpty ? APP_NAME : preference.name;
+    _preferenceName = preference.name.isEmpty ? APP_NAME : preference.name;
     debugPrint("session preference:$preference");
   }
 
@@ -324,6 +324,9 @@ class _HomeWidgetState extends State<HomeWidget> {
             session.breaths =
                 (preference.duration - _duration.inSeconds) ~/
                 (breath / Duration.millisecondsPerSecond);
+            if (_preferenceName != APP_NAME) {
+              session.description = _preferenceName;
+            }
             _addSession(session);
             _onDuration(session);
             _wakeLock(false);
@@ -437,7 +440,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     Preference preference = widget.preferences.get(0);
     setState(() {
       _duration = Duration(seconds: preference.duration);
-      _appName = preference.name.isEmpty ? APP_NAME : preference.name;
+      _preferenceName = preference.name.isEmpty ? APP_NAME : preference.name;
     });
   }
 
@@ -460,7 +463,7 @@ class _HomeWidgetState extends State<HomeWidget> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_appName),
+        title: Text(_preferenceName),
         actions: <Widget>[
           Visibility(
             visible: !_isRunning,
