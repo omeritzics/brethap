@@ -44,7 +44,8 @@ class HomeWidget extends StatefulWidget {
   static String keyPreferences = "Preferences",
       keySessions = "Sessions",
       keyCalendar = "Calendar",
-      keyNoPreferences = "No Preferences";
+      keyNoPreferences = "No Preferences",
+      keyStatusText = "Status Text";
   static int totalSessions = 200;
 
   @override
@@ -535,6 +536,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 });
               },
               child: Text(
+                key: Key(HomeWidget.keyStatusText),
                 _status,
                 style: Theme.of(context).textTheme.headlineSmall,
                 semanticsLabel: _status,
