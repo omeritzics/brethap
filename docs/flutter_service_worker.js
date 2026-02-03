@@ -16,13 +16,13 @@ const RESOURCES = {"assets/FontManifest.json": "7b2a36307916a9721811788013e65289
 "assets/images/launcher.png": "0950cc32a8f3e26588045a04f0cd6f55",
 "assets/packages/wakelock_web/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
 "assets/packages/wakelock_plus/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
-"assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
+"assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/AssetManifest.smcbin": "ac03e14a2298c8b8fd2d2a5670257a69",
 "assets/AssetManifest.bin": "7f71f525b800fe783d061db5578ad0b3",
 "assets/AssetManifest.bin.json": "ecbd67294a9628dfd2f2378ecb96ab5c",
 "assets/AssetManifest.json": "0dedca15fe9f47f9ef221b0fa49c217e",
-"assets/NOTICES": "1a5684422afe0d1a518613f5bbffed10",
+"assets/NOTICES": "beef49d665ba6fa8f7862b74a0ecbba9",
 "canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
 "canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
 "canvaskit/chromium/canvaskit.js": "a80c765aaa8af8645c9fb1aae53f9abf",
@@ -44,11 +44,11 @@ const RESOURCES = {"assets/FontManifest.json": "7b2a36307916a9721811788013e65289
 "manifest.json": "7dbb56011187c29a1092f838ef6df339",
 "README.md": "e36fa824f15fa14b5e13c4be30936e63",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "50a8afe5d7be2b260aa5f28bd9d22b0e",
+"flutter_bootstrap.js": "ee2741666fc9368ee15540aac2d3603e",
 "index.html": "1efc5cd32b5dd45b7a1107f05c7c2af6",
 "/": "1efc5cd32b5dd45b7a1107f05c7c2af6",
-"main.dart.js": "bbd59716d35ed46b3f566e9e20ab152f",
-"version.json": "306df4d8e4e4a1c49359b1f851581fc8"};
+"main.dart.js": "3343a90cc9f8a1d510b881c22049ba43",
+"version.json": "8a4f924b2c5f1bb0ff798589c33bc199"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
