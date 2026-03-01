@@ -66,6 +66,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   late String _status, _preferenceName;
   late FlutterTts _tts;
   double _scale = 0.0;
+  int _breaths = 0;
   late AudioPlayer _player;
   late WatchConnectivity _watch; // REMOVE FROM FDROID BUILD
 
@@ -322,9 +323,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             _status = AppLocalizations.of(context).pressStart;
             _isRunning = false;
             session.end = DateTime.now();
-            session.breaths =
-                (preference.duration - _duration.inSeconds) ~/
-                (breath / Duration.millisecondsPerSecond);
+            session.breaths = _breaths;
             if (_preferenceName != APP_NAME) {
               session.description = _preferenceName;
             }
@@ -333,6 +332,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             _wakeLock(false);
             _duration = Duration(seconds: preference.duration);
             _scale = 0.0;
+            _breaths = 0;
             timer.cancel();
           });
         } else {
@@ -389,6 +389,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             cycle += timerSpan.inMilliseconds;
             if (cycle >= breath) {
               cycle = 0;
+              _breaths++;
             }
 
             if (inhaling) {
@@ -409,7 +410,9 @@ class _HomeWidgetState extends State<HomeWidget> {
           });
         }
 
-        debugPrint("_duration: $_duration _scale: $_scale cycle: $cycle");
+        debugPrint(
+          "_duration: $_duration _scale: ${_scale.toStringAsFixed(3)} _breaths: $_breaths cycle: $cycle",
+        );
       });
     }
   }
@@ -539,7 +542,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                 key: Key(HomeWidget.keyStatusText),
                 _status,
                 style: Theme.of(context).textTheme.headlineSmall,
-                semanticsLabel: _status,
               ),
             ),
 
@@ -593,7 +595,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                 Text(
                   getDurationString(_duration),
                   style: Theme.of(context).textTheme.headlineSmall,
-                  semanticsLabel: getDurationString(_duration),
+                ),
+                SizedBox(width: 5),
+                Icon(Icons.air, color: Theme.of(context).primaryColor),
+                SizedBox(width: 5),
+                Text(
+                  _breaths.toString(),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),
