@@ -250,10 +250,13 @@ class _HomeWidgetState extends State<HomeWidget> {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
   }
 
-  Future<void> _onBreath(String text) async {
+  Future<void> _onBreath(String text, [int cycles = 1]) async {
     Preference preference = widget.preferences.get(0);
 
-    _vibrate(preference.vibrateBreath);
+    for (int i = 0; i < cycles; i++) {
+      _vibrate(preference.vibrateBreath ~/ cycles);
+      await Future.delayed(const Duration(milliseconds: 200));
+    }
 
     if (preference.breathTts) {
       await _speak(text);
@@ -366,7 +369,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               exhaling = true;
               text = AppLocalizations.of(context).exhale;
               _scale = 1.0;
-              _onBreath(text);
+              _onBreath(text, 2);
               _status = text;
               _onExhale();
             } else if (preference.exhale[1] > 0 &&
